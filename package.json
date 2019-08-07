@@ -1,0 +1,10 @@
+{
+  "name": "urltowav",
+  "version": "1.0.0",
+  "description": "Simple HTTP service to convert URLs to wav on-the-fly",
+  "main": "index.js",
+  "repository": "https://github.com/lezsakdomi/urltowav",
+  "author": "Domonkos Lezsák",
+  "license": "MIT",
+  "private": false
+}
