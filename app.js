@@ -9,6 +9,9 @@ server.on('request', (req, res) => {
 		const ffmpeg = spawn('ffmpeg', ['-i', req.url.slice(1), '-f', "wav", '-'])
 		ffmpeg.stdout.pipe(res)
 		ffmpeg.stderr.pipe(process.stderr)
+	} else if (req.url === '/ping') {
+		res.setHeader('Content-Type', 'text/plain')
+		res.end("pong")
 	} else {
 		res.statusCode = 400
 		res.setHeader('Content-Type', 'text/plain')
@@ -18,6 +21,11 @@ server.on('request', (req, res) => {
 			"Usage:\n" +
 			"Just supply the URL of an MP3 (or other) file as a path, like so:\n" +
 			"  https://urltowav.herokuapp.com/http://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=en&q=Test&extensionhack=.wav\n" +
+			"\n" +
+			"Additional services:" +
+			"  - ping at /ping" +
+			"      Used to ensure service availability" +
+			"      Especially useful when this application is deployed to Heroku, because you could start the web dyno by pinging\n" +
 			"\n" +
 			"TODO (aka features which won't be ever implemented)\n" +
 			"- Pass URL as a query parameter\n" +
