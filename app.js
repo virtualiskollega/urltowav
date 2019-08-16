@@ -13,7 +13,7 @@ server.on('request', (req, res) => {
 		res.statusCode = 400
 		res.setHeader('Content-Type', 'text/plain')
 		res.end(
-			"This simple web service lets you convert MP3 files to WAV on the fly.\n" +
+			"This simple web service lets you convert MP3 files by URL to WAV on the fly.\n" +
 			"\n" +
 			"Usage:\n" +
 			"Just supply the URL of an MP3 (or other) file as a path, like so:\n" +
